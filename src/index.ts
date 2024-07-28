@@ -1,5 +1,6 @@
 import { addListener } from '@finsweet/ts-utils';
 import { addDays, format } from 'date-fns';
+import { Resend } from 'resend';
 import { calculatePricing } from './util/calculatePricing';
 import {
   BAYS_TEXT,
@@ -17,6 +18,9 @@ import { playersHelper } from './util/playersHelper';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
+  const RESEND_KEY = 're_5YrzEdH9_KJBKB1pL9DFZvB7NY9r2CUqK';
+  const resend = new Resend(RESEND_KEY);
+
   let registrantFirstName: string;
   let registrantLastName: string;
   let registrantEmailAddress: string;
@@ -76,5 +80,11 @@ window.Webflow.push(() => {
     };
 
     console.log(formData);
+    resend.emails.send({
+      from: `${registrantEmailAddress}`,
+      to: 'shane@stormcloud.marketing',
+      subject: `Reservation Request from ${registrantFirstName} ${registrantLastName}`,
+      html: `<code>${formData}</code>`,
+    });
   });
 });
