@@ -16,12 +16,12 @@ export const playersHelper = (
   let numberOfBays = 2;
 
   const setSevenDays = () => {
-    dateInput.setAttribute('min', format(addDays(new Date(), 7).toDateString(), 'YYYY-MM-dd'));
+    dateInput.setAttribute('min', format(addDays(new Date(), 7).toDateString(), 'yyyy-MM-dd'));
     dateInput.valueAsDate = addDays(new Date(), 7);
   };
 
   const setFourteenDays = () => {
-    dateInput.setAttribute('min', format(addDays(new Date(), 14).toDateString(), 'YYYY-MM-dd'));
+    dateInput.setAttribute('min', format(addDays(new Date(), 14).toDateString(), 'yyyy-MM-dd'));
     dateInput.valueAsDate = addDays(new Date(), 14);
   };
 

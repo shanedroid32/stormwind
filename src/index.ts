@@ -34,7 +34,7 @@ window.Webflow.push(() => {
   let reservationTime: number;
 
   const init = () => {
-    DATE_INPUT.setAttribute('min', format(addDays(new Date(), 7).toDateString(), 'YYYY-MM-dd'));
+    DATE_INPUT.setAttribute('min', format(addDays(new Date(), 7).toDateString(), 'yyyy-MM-dd'));
     DATE_INPUT.value = addDays(new Date(), 7).toDateString();
     reservationDate = DATE_INPUT.valueAsDate;
   };
